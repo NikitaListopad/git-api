@@ -1,9 +1,9 @@
+import styles from '../styles/main.module.css';
+
 const Main = ({ children }) => {
     return (
-        <main>
-            <div>
-                {children}
-            </div>
+        <main className={styles.mainContainer}>
+            {children}
         </main>
     )
 }
