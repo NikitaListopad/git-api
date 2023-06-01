@@ -1,0 +1,20 @@
+.resultItemContainer {
+    background: #ffffff;
+    width: 100%;
+    padding: 40px 72px 40px 40px;
+    border-radius: 16px;
+    border: none;
+
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+}
+
+.resultItemContainer:not(:first-child) {
+    margin-top: 36px;
+}
+
+.resultImage {
+    width: 128px;
+    height: 144px;
+}

@@ -1,4 +1,4 @@
-import {Input} from "../elements/input";
+import {Input} from "../elements";
 
 const Search = () => {
 

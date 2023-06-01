@@ -1,7 +1,9 @@
-const Image = (props) => {
+export const Image = ({image, alt, className, }) => {
     return (
         <img
-            {...props}
+            src={image}
+            alt={alt}
+            className={className}
         />
     )
 }
