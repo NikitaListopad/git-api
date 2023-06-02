@@ -30,7 +30,10 @@ const Pagination = ({onPageChange, totalCount, siblingCount, currentPage, pageSi
            </li>
             {
                 paginationRange.map(pageNum => (
-                    <li onClick={() => onPageChange(pageNum)} className={styles.paginationItem} key={pageNum}>
+                    <li onClick={() => onPageChange(pageNum)}
+                        className={`${styles.paginationItem} ${pageNum === currentPage ? styles.activePaginationItem : ''}`}
+                        key={pageNum}
+                    >
                         {pageNum}
                     </li>
                 ))
