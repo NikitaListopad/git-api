@@ -1,0 +1,27 @@
+.descriptionContainer {
+  max-width: 392px;
+}
+
+.title {
+  color: #081f32;
+  font-family: 'DMSerif', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 25px;
+}
+
+.author,
+.language,
+.description {
+  color: #a5adbb;
+  font-family: 'OpenSans', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.description {
+  color: #6e798c;
+}

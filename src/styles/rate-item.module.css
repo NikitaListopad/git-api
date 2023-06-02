@@ -1,0 +1,37 @@
+.rateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.rateItemsContainer {
+  display: flex;
+  align-items: center;
+  min-width: 143px;
+}
+
+.rateItemsContainer:not(:first-of-type) {
+  padding: 23px 0;
+}
+
+.icon {
+  max-height: 24px;
+  margin-right: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.rateText {
+  font-family: 'OpenSans', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+  color: #081f32;
+}
+
+.starsText {
+  font-weight: 400;
+  color: #6e798c;
+}
