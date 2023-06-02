@@ -1,16 +1,11 @@
 import ResultItem from "./result-item";
-const mockObject = {
-    title: 'Repo name',
-    author: 'Author',
-    language: 'JavaScript',
-    description: 'Lorem lorem fdosp fpd dposfkpods op opdospop sd'
-}
-const ResultList = () => {
+
+const ResultList = ({items, index}) => {
     return (
         <ul>
-            <ResultItem item={mockObject}/>
-            <ResultItem item={mockObject}/>
-            <ResultItem item={mockObject}/>
+            {items.map(item => (
+                <ResultItem item={item} index={index}/>
+            ))}
         </ul>
     )
 }

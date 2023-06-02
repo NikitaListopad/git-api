@@ -10,13 +10,13 @@ const mappingIcons = (watchers, stars) => ([
 
 const RateItem = ({watchers, stars}) => {
 
-    const iconItems = mappingIcons(watchers = 146, stars = 146);
+    const iconItems = mappingIcons(watchers, stars);
 
     return (
         <div className={styles.rateContainer}>
             {iconItems.map(item => {
                 return (
-                    <div className={styles.rateItemsContainer}>
+                    <div className={styles.rateItemsContainer} key={item.text}>
                         <Icon children={item.icon} className={styles.icon} />
                         <Text text={`${item.display} ${item.text}`} className={`${styles.rateText} ${item.className}`}/>
                     </div>

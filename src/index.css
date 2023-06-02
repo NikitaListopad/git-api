@@ -13,6 +13,11 @@
   src: local('Roboto-Regular'), url("./assets/fonts/Roboto-Regular.ttf") format('truetype');
 }
 
+@font-face {
+  font-family: "Archivo";
+  src: local('Archivo-SemiBold'), url("./assets/fonts/Archivo-SemiBold.ttf") format('truetype');
+}
+
 html, body, ul, li, p, h1, h2, h3, span, input, img, div, main, a {
   margin: 0;
   padding: 0;

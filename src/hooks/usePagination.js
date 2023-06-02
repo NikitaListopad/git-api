@@ -3,7 +3,7 @@ import {useMemo} from "react";
 export const usePagination = ({
     totalCount,
     pageSize,
-    minNums = 8,
+    siblingCount = 1,
     currentPage
 }) => {
 
@@ -13,11 +13,10 @@ export const usePagination = ({
     }
 
     return useMemo(() => {
+       if (!pageSize) return []
+
         const totalPageCount = Math.ceil(totalCount / pageSize);
 
-        if (minNums >= totalPageCount) {
-            return range(1, totalPageCount)
-        }
-
-    }, [totalCount, pageSize, minNums, currentPage]);
+        return range(1, totalPageCount).splice(currentPage - 1,8)
+    }, [totalCount, pageSize, siblingCount, currentPage]);
 }
