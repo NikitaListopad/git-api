@@ -39,23 +39,29 @@ const App = () => {
             onChange={onSearchChange}
         />
         <>
-            {!items.length ?
+            {
+                (
+                !items.length ?
                 <DisplayError errorMessage={hardcodedMessage}/>
                 :
                 <>
             {!loading ?
-                <ResultList items={modifiedItems}/>
+                <>
+                    <ResultList items={modifiedItems}/>
+                    <Pagination
+                        totalCount={totalCount}
+                        currentPage={currentPage}
+                        siblingCount={1}
+                        pageSize={20}
+                        onPageChange={(page) => setCurrentPage(page)}
+                    />
+                </>
                 :
                 <h1>Waiting please</h1>
             }
-                <Pagination
-                totalCount={totalCount}
-                currentPage={currentPage}
-                siblingCount={1}
-                pageSize={20}
-                onPageChange={(page) => setCurrentPage(page)}
-                />
-                </>}
+                </>
+            )
+            }
         </>
       </Main>
   )
