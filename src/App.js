@@ -1,13 +1,14 @@
 import Main from "./layouts/main";
 import Search from "./components/search";
 import ResultList from "./components/result-list";
+import Pagination from "./components/pagination";
 
 const App = () => {
   return (
       <Main>
         <Search />
         <ResultList />
-        {/*<Pagination />*/}
+        <Pagination />
       </Main>
   )
 }
