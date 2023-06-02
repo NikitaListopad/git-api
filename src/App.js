@@ -6,6 +6,9 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getSearchResult} from "./store/actions/searchActions";
 import {ModifySearchItems} from "./helpers/modifySearchItems";
+import DisplayError from "./components/display-error";
+
+const hardcodedMessage = 'No repository was found for your request';
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -30,18 +33,25 @@ const App = () => {
             value={searchText}
             onChange={onSearchChange}
         />
-          {!loading ?
-              <ResultList items={modifiedItems}/>
-          :
-              <h1>Waiting please</h1>
-          }
-        <Pagination
-            totalCount={totalCount}
-            currentPage={currentPage}
-            siblingCount={1}
-            pageSize={20}
-            onPageChange={(page) => setCurrentPage(page)}
-        />
+        <>
+            {!items.length ?
+                <DisplayError errorMessage={hardcodedMessage}/>
+                :
+                <>
+            {!loading ?
+                <ResultList items={modifiedItems}/>
+                :
+                <h1>Waiting please</h1>
+            }
+                <Pagination
+                totalCount={totalCount}
+                currentPage={currentPage}
+                siblingCount={1}
+                pageSize={20}
+                onPageChange={(page) => setCurrentPage(page)}
+                />
+                </>}
+        </>
       </Main>
   )
 }
