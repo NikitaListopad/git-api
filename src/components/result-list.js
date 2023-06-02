@@ -1,13 +1,13 @@
-import ResultItem from "./result-item";
+import ResultItem from './result-item';
 
-const ResultList = ({items, index}) => {
-    return (
-        <ul>
-            {items.map(item => (
-                <ResultItem item={item} index={index}/>
-            ))}
-        </ul>
-    )
-}
+const ResultList = ({ items, index }) => {
+  return (
+    <ul>
+      {items.map((item) => (
+        <ResultItem item={item} index={index} />
+      ))}
+    </ul>
+  );
+};
 
 export default ResultList;

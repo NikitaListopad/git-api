@@ -1,8 +1,8 @@
 .errorMessage {
-    font-family: 'Archivo', serif;
-    font-size: 20px;
-    line-height: 25px;
-    color: rgba(138, 14, 14, 0.9);
-    margin: 50px auto;
-    width: 50%;
+  font-family: 'Archivo', serif;
+  font-size: 20px;
+  line-height: 25px;
+  color: rgba(138, 14, 14, 0.9);
+  margin: 50px auto;
+  width: 50%;
 }

@@ -1,11 +1,8 @@
-import {Text} from "../elements";
-import styles from '../styles/display-error.module.css'
+import { Text } from '../elements';
+import styles from '../styles/display-error.module.css';
 
+const DisplayError = ({ errorMessage }) => {
+  return <Text text={errorMessage} className={styles.errorMessage} />;
+};
 
-const DisplayError = ({errorMessage}) => {
-    return (
-        <Text text={errorMessage} className={styles.errorMessage} />
-)
-}
-
-export default DisplayError
+export default DisplayError;
