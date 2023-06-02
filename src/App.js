@@ -9,24 +9,32 @@ import {ModifySearchItems} from "./helpers/modifySearchItems";
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchText, setSearchText] = useState(null);
 
     const {items, loading, totalCount } = useSelector((state) => state.search)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getSearchResult('react', currentPage))
-    }, [])
+        dispatch(getSearchResult({value: searchText, page: currentPage}))
+    }, [currentPage, searchText])
 
-    if (loading) {
-        return <div>waiting</div>
+    const onSearchChange = (e) => {
+        setSearchText(e.target.value.replace(/\s/g, ''));
     }
 
     const modifiedItems = items.map(item => ModifySearchItems(item));
 
   return (
       <Main>
-        <Search />
-        <ResultList items={modifiedItems}/>
+        <Search
+            value={searchText}
+            onChange={onSearchChange}
+        />
+          {!loading ?
+              <ResultList items={modifiedItems}/>
+          :
+              <h1>Waiting please</h1>
+          }
         <Pagination
             totalCount={totalCount}
             currentPage={currentPage}

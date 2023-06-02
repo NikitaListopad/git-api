@@ -6,7 +6,7 @@ export const Input = ({className, type, value, onChange, placeholder}) => {
             <input
                 className={className ?? inputStyles.input}
                 type={type ?? 'text'}
-                value={value}
+                value={value ?? ''}
                 onChange={onChange}
                 placeholder={placeholder}
             />
