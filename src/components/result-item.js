@@ -1,7 +1,7 @@
 import {Image} from "../elements";
 import ItemDescription from "./item-description";
 import styles from '../styles/result-item.module.css'
-import defaultAvatar from '../assets/default-avatar.jpeg'
+import defaultAvatar from '../assets/images/default-avatar.jpeg'
 import RateItem from "./rate-item";
 
 const ResultItem = ({item}) => {

@@ -5,7 +5,7 @@
 
     .title {
         color: #081f32;
-        font-family: 'DM Serif Display';
+        font-family: 'DMSerif', serif;
         font-style: normal;
         font-weight: 400;
         font-size: 22px;
@@ -14,7 +14,7 @@
 
     .author, .language, .description {
         color: #a5adbb;
-        font-family: 'Open Sans';
+        font-family: 'OpenSans', serif;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;

@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "DMSerif";
+  src: local('DMSerifDisplay-Regular'), url("./assets/fonts/DMSerifDisplay-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local('OpenSans-Regular'), url("./assets/fonts/OpenSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local('Roboto-Regular'), url("./assets/fonts/Roboto-Regular.ttf") format('truetype');
+}
+
 html, body, ul, li, p, h1, h2, h3, span, input, img, div, main, a {
   margin: 0;
   padding: 0;
