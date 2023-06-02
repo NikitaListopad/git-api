@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getSearchResult} from "./store/actions/searchActions";
 import {ModifySearchItems} from "./helpers/modifySearchItems";
 import DisplayError from "./components/display-error";
+import useDebounce from "./hooks/useDebounce";
 
 const hardcodedMessage = 'No repository was found for your request';
 
@@ -16,13 +17,17 @@ const App = () => {
 
     const {items, loading, totalCount } = useSelector((state) => state.search)
     const dispatch = useDispatch();
+    const debouncedValue = useDebounce(searchText, 500)
+
 
     useEffect(() => {
         dispatch(getSearchResult({value: searchText, page: currentPage}))
-    }, [currentPage, searchText])
+    }, [debouncedValue, currentPage])
 
     const onSearchChange = (e) => {
-        setSearchText(e.target.value.replace(/\s/g, ''));
+        const toSearchText = e.target.value.replace(/\s/g, '');
+
+        setSearchText(toSearchText);
     }
 
     const modifiedItems = items.map(item => ModifySearchItems(item));
