@@ -3,7 +3,7 @@ import Search from './components/search';
 import ResultList from './components/result-list';
 import Pagination from './components/pagination';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {shallowEqual, useDispatch, useSelector} from 'react-redux';
 import { getSearchResult } from './store/actions/searchActions';
 import { ModifySearchItems } from './helpers/modifySearchItems';
 import DisplayError from './components/display-error';
@@ -15,13 +15,18 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState(null);
 
-  const { items, loading, totalCount } = useSelector((state) => state.search);
+  const { items, loading, totalCount } = useSelector((state) => state.search, shallowEqual);
+
   const dispatch = useDispatch();
   const debouncedValue = useDebounce(searchText, 500);
 
   useEffect(() => {
+    dispatch(getSearchResult({ value: searchText, page: 1 }));
+  }, [debouncedValue]);
+
+  useEffect(() => {
     dispatch(getSearchResult({ value: searchText, page: currentPage }));
-  }, [debouncedValue, currentPage]);
+  }, [currentPage]);
 
   const onSearchChange = (e) => {
     const toSearchText = e.target.value.replace(/\s/g, '');
@@ -30,6 +35,8 @@ const App = () => {
   };
 
   const modifiedItems = items.map((item) => ModifySearchItems(item));
+
+  console.log('render')
 
   return (
     <Main>
