@@ -17,7 +17,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState(null);
 
-  const { items, loading, totalCount } = useSelector(getSearch, shallowEqual);
+  const searchSelector = useSelector(getSearch, shallowEqual);
 
   const dispatch = useDispatch();
   const debouncedValue = useDebounce(searchText, 500);
@@ -36,23 +36,21 @@ const App = () => {
     setSearchText(toSearchText);
   };
 
-  const modifiedItems = items.map((item) => ModifySearchItems(item));
-
-  console.log('render')
+  const modifiedItems = searchSelector.items.map((item) => ModifySearchItems(item));
 
   return (
     <Main>
       <Search value={searchText} onChange={onSearchChange} />
       <>
-        {!items.length ? (
+        {!searchSelector.items.length ? (
           <DisplayError errorMessage={hardcodedMessage} />
         ) : (
           <>
-            {!loading ? (
+            {!searchSelector.loading ? (
               <>
                 <ResultList items={modifiedItems} />
                 <Pagination
-                  totalCount={totalCount}
+                  totalCount={searchSelector.totalCount}
                   currentPage={currentPage}
                   siblingCount={1}
                   pageSize={20}
