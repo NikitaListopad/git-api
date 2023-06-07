@@ -36,8 +36,6 @@ const App = () => {
 
   const modifiedItems = items.map((item) => ModifySearchItems(item));
 
-  console.log('render')
-
   return (
     <Main>
       <Search value={searchText} onChange={onSearchChange} />
