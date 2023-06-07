@@ -11,11 +11,13 @@ import useDebounce from './hooks/useDebounce';
 
 const hardcodedMessage = 'No repository was found for your request';
 
+const getSearch = state => state.search;
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState(null);
 
-  const { items, loading, totalCount } = useSelector((state) => state.search, shallowEqual);
+  const { items, loading, totalCount } = useSelector(getSearch, shallowEqual);
 
   const dispatch = useDispatch();
   const debouncedValue = useDebounce(searchText, 500);
@@ -35,6 +37,8 @@ const App = () => {
   };
 
   const modifiedItems = items.map((item) => ModifySearchItems(item));
+
+  console.log('render')
 
   return (
     <Main>
